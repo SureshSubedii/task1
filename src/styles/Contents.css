@@ -1,0 +1,17 @@
+.contents{
+    border: 1px solid black;
+    margin-bottom:30px;
+    margin-top: 10px;
+}
+.contents>img{
+    padding-top: 8px;
+    width: 80px;
+    padding-left:30px;
+
+
+}
+.contents>p{
+    border-top: 1px solid black;
+    padding-left:30px;
+
+}

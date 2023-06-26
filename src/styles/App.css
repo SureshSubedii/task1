@@ -1,0 +1,22 @@
+.app>.search-button{
+  display: flex;
+  align-items: center;
+  background-color: rgba(233, 229, 229, 0.834);
+  position: absolute;
+  left: 50%;
+  top:5%;
+  padding: 3px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.app{
+  height: 100vh;
+}
+.search-text{
+  margin: 0 10px;
+}
+.shortut-key{
+  border:1px solid rgba(132, 127, 127, 0.976);
+  padding: 3px;
+  border-radius: 5px;
+}
