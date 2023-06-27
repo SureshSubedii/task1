@@ -9,9 +9,7 @@
   border-radius: 8px;
   cursor: pointer;
 }
-/* .app{
-  height: 100vh;
-} */
+
 .search-text{
   margin: 0 10px;
 }
@@ -20,7 +18,7 @@
   padding: 3px;
   border-radius: 5px;
 }
-.backdrop {
+.back {
   position: fixed;
   top: 0;
   left: 0;

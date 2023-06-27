@@ -31,15 +31,15 @@ function PopUp({onClick}) {
           
            <select defaultValue="" onChange={(event)=>setSelectedValue(event.target.value)}>
             <option value="" disabled>Category</option>
-            <option > none</option>
-            <option value="men's clothing">Men's clothing</option>
+            <option value="men's clothing">Men's Clothing</option>
             <option value="jewelery">Jewelery</option>
             <option value="electronics">Electronics</option>
+            <option value="women's clothing">Women's Clothing</option>
+
            </select>
           
            <select defaultValue={null} onChange={(event)=>setPrice(event.target.value)} >
             <option value={null}  >Price</option>
-            <option > none</option>
             <option value={20}> less than 20 </option>
             <option value={50}>less than 50</option>
             <option value={100}>less than 100</option>

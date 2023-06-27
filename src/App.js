@@ -54,7 +54,7 @@ function App() {
       </div>
       {isPopUpOpen && (
         <>
-          <div className="backdrop" onClick={handleClosePopUp} />
+          <div className="back" onClick={handleClosePopUp} />
           <PopUp ref={containerRef} />
         </>
       )}
