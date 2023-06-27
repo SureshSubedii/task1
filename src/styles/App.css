@@ -9,9 +9,9 @@
   border-radius: 8px;
   cursor: pointer;
 }
-.app{
+/* .app{
   height: 100vh;
-}
+} */
 .search-text{
   margin: 0 10px;
 }
@@ -20,3 +20,11 @@
   padding: 3px;
   border-radius: 5px;
 }
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+

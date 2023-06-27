@@ -13,7 +13,10 @@ function App() {
     setColor('#5a5a5a');
   };
 
- 
+  const handleClosePopUp = () => {
+    setPopUpOpen(false);
+    setColor('white');
+  };
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -21,37 +24,24 @@ function App() {
         event.preventDefault();
         handleSearchClick();
       } else if (event.key === 'Escape') {
-        setPopUpOpen(false);
-        setColor('white');
+        handleClosePopUp();
       }
     };
-    const handleClickOutside = (event) => {
-  
-      if (
-    
-        containerRef.current &&
-        !containerRef.current.contains(event.target) 
-      ) {
-        alert("You clicked outside of me!");
-      console.log("clicked")
 
-        setPopUpOpen(false);
-        setColor('white');
+    const handleClick = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        handleClosePopUp();
       }
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('mousedown', handleClickOutside);
-
+    document.addEventListener('click', handleClick);
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('mousedown', handleClickOutside);
-
-      
+      document.removeEventListener('click', handleClick);
     };
-  }, [containerRef]);
-
+  }, []);
 
   document.body.style.backgroundColor = color;
 
@@ -62,7 +52,12 @@ function App() {
         <p className="search-text">Search</p>
         <p className="shortcut-key">Ctrl K</p>
       </div>
-      {isPopUpOpen && <PopUp ref={containerRef} />}
+      {isPopUpOpen && (
+        <>
+          <div className="backdrop" onClick={handleClosePopUp} />
+          <PopUp ref={containerRef} />
+        </>
+      )}
     </div>
   );
 }

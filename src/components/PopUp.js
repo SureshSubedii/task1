@@ -5,38 +5,41 @@ import axios from './Axios'
 import Contents from './Contents'
 
 
-function PopUp() {
-  const [product,setProduct]=useState([])
+function PopUp({onClick}) {
+  const [products,setProducts]=useState([])
   const [searchData,setSearchData]=useState('')
   const [selectedValue,setSelectedValue]=useState('')
   const [price,setPrice]=useState();
 
 
   useEffect(() => {
-    axios.get('/').
-    then(res=>{
-        setProduct(res.data)
+    axios.get('/')
+    .then(res=>{
+        setProducts(res.data);
+
+
     })
+
 
  
 }, [])
   return (
-    <div className='popup'>
+    <div className='popup' onClick={onClick}>
         <div className="search-box">
             <Search/>
             <input onChange={(event)=>setSearchData(event.target.value)} type='text' placeholder='Search'/>
           
-           <select onChange={(event)=>setSelectedValue(event.target.value)}>
-            <option value="" selected disabled>Category</option>
-            <option value=""> none</option>
+           <select defaultValue="" onChange={(event)=>setSelectedValue(event.target.value)}>
+            <option value="" disabled>Category</option>
+            <option > none</option>
             <option value="men's clothing">Men's clothing</option>
             <option value="jewelery">Jewelery</option>
             <option value="electronics">Electronics</option>
            </select>
           
-           <select onChange={(event)=>setPrice(event.target.value)} >
-            <option value={null} selected disabled>Price</option>
-            <option value={null}> none</option>
+           <select defaultValue={null} onChange={(event)=>setPrice(event.target.value)} >
+            <option value={null}  >Price</option>
+            <option > none</option>
             <option value={20}> less than 20 </option>
             <option value={50}>less than 50</option>
             <option value={100}>less than 100</option>
@@ -45,18 +48,12 @@ function PopUp() {
             <option value={1000}>less than 1000</option>
             <option value={2000}>less than 2000</option>
             <option value={5000}>less than 5000</option>
-
-
-
-
-
-       
            </select>
 
             <AppsSharp/>
             <ClearSharp/>
         </div>
-        <Contents products={product} searchData={searchData} selectedValue={selectedValue} price={price}/>
+        <Contents products={products} searchData={searchData} selectedValue={selectedValue} price={price}/>
         <div className="navigation-buttons">
         <p className='up-arrow-button'>&#8593;</p>
         <p className='down-arrow-button'>&#8595;</p>to navigate
